@@ -4,13 +4,11 @@
 using namespace std;
 
 class phuong_tien {
-	
 private:
     int ma_xe;
     string loai_xe;
     int gio_vao;
     int tg_do;
-    
 
 public:
     phuong_tien();
@@ -51,27 +49,15 @@ class bai_xe {
 private:
     int ma_bai;
     char kich_thuoc;
-    static const int MAX_XE = 3;
-    int so_xe;
-    
+    phuong_tien pt1, pt2, pt3;   // sau này dùng mảng
+    bool co1, co2, co3;
 
 public:
-    bai_xe() : ma_bai(0), kich_thuoc('S'), so_xe(0){}
-    bai_xe(int ma, char kt) : ma_bai(ma), kich_thuoc(kt), so_xe(0){}
+    bai_xe();
+    bai_xe(int ma, char kt);
 
-    int lay_ma() const {return ma_bai;}
-    int suc_chua() const{
-		if(kich_thuoc == 'S') return 1;
-		if(kich_thuoc == 'M') return 2;
-		return 3;
-	}
-	bool day() const {return so_xe >= suc_chua();}
-    bool them(phuong_tien v){
-    	if(day()) return false;
-    	ds_xe[so_xe] = v;
-    	so_xe++;
-    	return true;
-	};
+    int lay_ma() const;
+    bool them(phuong_tien v);
     bool xoa(int ma_xe);
     bool chua(int ma_xe) const;
     void hien_thi() const;
@@ -140,7 +126,7 @@ bool bai_xe::co_loai(string loai, int& dem, double& tong) const {
 
 class SystemInterface {
 private:
-    bai_xe bai1, bai2, bai3;   // sau này dùng m?ng
+    bai_xe bai1, bai2, bai3;   // sau này dùng mảng
     bool co1, co2, co3;
 
 public:
@@ -165,7 +151,7 @@ void SystemInterface::runMenu() {
         cout << "9. Thoat\n";
         cout << "Chon: ";
         cin >> chon;
-//các e chuy?n sang l?nh switch cho th?y
+//các e chuyển sang lệnh switch cho thầy
         if (chon == 1) {
             int ma; char kt;
             cout << "Ma bai: "; cin >> ma;
