@@ -77,7 +77,7 @@ public:
         cout << "Don gia: ";
         cin >> donGia;
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore();
     }
 
     long long thanhTien() const {
@@ -120,7 +120,7 @@ public:
         do {
             cout << "So mat hang (1-15): ";
             cin >> n;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
 
             if (n < 1 || n > 15) {
                 cout << "So mat hang khong hop le!\n";
