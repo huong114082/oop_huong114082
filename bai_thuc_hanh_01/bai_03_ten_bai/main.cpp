@@ -81,7 +81,7 @@ public:
     }
 
     long long thanhTien() const {
-        return 1LL * soLuong * donGia;
+        return soLuong * donGia;
     }
 };
 
@@ -170,9 +170,7 @@ public:
 
 int main() {
     HoaDon hd;
-
     hd.nhap();
     hd.xuat();
-
     return 0;
 }
